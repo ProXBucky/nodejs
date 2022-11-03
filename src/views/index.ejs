@@ -12,15 +12,13 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
+        <a class="active" href="#home">User List</a>
+        <a href="#news">Update File</a>
     </div>
 
     <div style="padding-left:16px; margin-top: 30px;">
-        <h2>List users: </h2>
-        <div class="w3-container">
-            <h2>Hoverable Table</h2>
-
+        <h1 style="text-align:center;">List users: </h1>
+        <div class="w3-container" style="margin-top: 50px;">
             <table class="w3-table-all w3-hoverable">
                 <thead>
                     <tr class="w3-light-grey">
@@ -32,44 +30,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%= %>
-                        <% for(var i=0 ; i < dataUser.length; i++) { %>
-                            <tr>
-                                <td>
-                                    <%= dataUser[i].id %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].firstName %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].lastName %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].address %>
-                                </td>
-                                <td>
-                                    <!-- <a class="fcc-btn" href="/detail/user/<%= dataUser[i].id %>">
+
+                    <% for(var i=0 ; i < dataUser.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= dataUser[i].id %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].firstName %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].lastName %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].address %>
+                            </td>
+                            <td>
+                                <!-- <a class="fcc-btn" href="/detail/user/<%= dataUser[i].id %>">
                                         Detail
                                     </a> -->
-                                    <form action="/detail/user/<%= dataUser[i].id %>" method="get">
-                                        <input type="text" hidden name="userId">
-                                        <button class="fcc-btn" type="submit">Detail</button>
-                                    </form>
+                                <form action="/detail/user/<%= dataUser[i].id %>" method="get">
+                                    <!-- <input type="text" hidden name="userId"> -->
+                                    <button class="fcc-btn" type="submit">Detail</button>
+                                </form>
 
-                                    <form action="/delete-user" method="post">
-                                        <input type="text" hidden value="<%= dataUser[i].id %>" name="userId">
-                                        <button class="fcc-btn" type="submit">Delete</button>
-                                    </form>
+                                <form action="/delete-user/" method="post">
+                                    <input type="text" hidden value="<%= dataUser[i].id %>" name="userId">
+                                    <button class="fcc-btn" type="submit">Delete</button>
+                                </form>
 
-                                    <form action="" method="post">
-                                        <input type="text" hidden value="<%= dataUser[i].id %>" name="userId">
-                                        <button class="fcc-btn" type="submit">Edit</button>
-                                    </form>
-
-
-                                </td>
-                            </tr>
-                            <% } %>
+                                <form action="/edit-user/<%= dataUser[i].id %>" method="get">
+                                    <button class="fcc-btn" type="submit">Edit</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
 
                 </tbody>
 
@@ -101,7 +96,7 @@
                     <input type="email" name="email">
                 </div>
                 <div class="form-items">
-                    <button type="submit">Create</button>
+                    <button class="fcc-btn" type="submit">Create</button>
                 </div>
             </form>
         </div>
